@@ -97,7 +97,9 @@ bool command_passes_args(CompilerCommand command)
 {
 	switch (command)
 	{
+		case COMMAND_CLEAN_RUN:
 		case COMMAND_COMPILE_RUN:
+		case COMMAND_RUN:
 			return true;
 		case COMMAND_COMPILE:
 		case COMMAND_COMPILE_ONLY:
@@ -111,8 +113,6 @@ bool command_passes_args(CompilerCommand command)
 		case COMMAND_INIT:
 		case COMMAND_INIT_LIB:
 		case COMMAND_BUILD:
-		case COMMAND_RUN:
-		case COMMAND_CLEAN_RUN:
 		case COMMAND_CLEAN:
 		case COMMAND_DIST:
 		case COMMAND_DOCS:
@@ -324,6 +324,7 @@ static void update_build_target_from_options(BuildTarget *target, BuildOptions *
 	if (options->arch_os_target_override != ARCH_OS_TARGET_DEFAULT) target->arch_os_target = options->arch_os_target_override;
 	if (options->reloc_model != RELOC_DEFAULT) target->reloc_model = options->reloc_model;
 	if (options->symtab_size) target->symtab_size = options->symtab_size;
+	if (options->silence_deprecation) target->silence_deprecation = options->silence_deprecation;
 	target->print_linking = options->print_linking;
 
 	for (int i = 0; i < options->linker_arg_count; i++)

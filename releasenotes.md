@@ -24,7 +24,8 @@
 - Add `@const` attribute for macros, for better error messages with constant macros.
 - Add `wincrt` setting to libraries.
 - Add `+++` `&&&` `|||` as replacement for `$concat`, `$and` and `$or`.
-- Add `methodsof` to type info for struct, union and bitstruct
+- Add `methodsof` to type info for struct, union and bitstruct.
+- Added `@tag` `tagof` and `has_tagof` to user defined types and members.
 
 ### Fixes
 
@@ -49,10 +50,15 @@
 - Fixes to the socket functions.
 - Improved output when pointer is out of range.
 - Better error when casting to a distinct fails.
+- With single module, name the .o file after what `-o` provides. #1306
+- Bitstruct members can now have attributes.
+- `%` analysis was incorrect for int vectors.
 
 ### Stdlib changes
 
 - `send` and `recv` added to `libc` for Posix / Win32.
+- Add support to destroy temp allocators.
+- Fix Vec2.angle
 
 ## 0.6.1 Change list
 
