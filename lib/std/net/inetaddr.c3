@@ -1,7 +1,7 @@
 module std::net;
 import std::io;
 
-enum IpProtocol : char (AIFamily ai_family)
+enum IpProtocol : char (AIProtocol ai_family)
 {
 	UNSPECIFIED { os::AF_UNSPEC },
 	IPV4        { os::AF_INET   },
